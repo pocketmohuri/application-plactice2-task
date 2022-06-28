@@ -34,10 +34,10 @@
       </li>
     <% else %>
       <li>
-        <%= link_to homes_top_path ,class: "nav-link text-light", method: :get do%><i class="fas fa-home"></i>&nbsp;Home <% end %>
+        <%= link_to root_path ,class: "nav-link text-light", method: :get do%><i class="fas fa-home"></i>&nbsp;Home <% end %>
       </li>
       <li>
-        <%= link_to homes_about_path ,class: "nav-link text-light", method: :get do%><i class="fas fa-link"></i>&nbsp;About <% end %>
+        <%= link_to home_about_path ,class: "nav-link text-light", method: :get do%><i class="fas fa-link"></i>&nbsp;About <% end %>
       </li>
       <li>
         <%= link_to new_user_registration_path ,class: "nav-link text-light", method: :get do%><i class="fas fa-user-plus"></i>&nbsp;Sign up <% end %>
