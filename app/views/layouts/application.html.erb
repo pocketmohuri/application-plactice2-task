@@ -14,10 +14,14 @@
     <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
+      <%= link_to root_path ,class: "navbar-brand", method: :get do%>
+      <span>Bookers</span>
+      <% end %>
+
       <div class="collapse navbar-collapse" id="navbarNavDropdown"> <ul class="navbar-nav ml-auto">
     <% if user_signed_in? %>
       <li>
-        <%= link_to  user_path(current_user) ,class: "nav-link text-light", method: :get do%><i class="fas fa-home"></i>&nbsp;Homes <% end %>
+        <%= link_to  user_path(current_user) ,class: "nav-link text-light", method: :get do%><i class="fas fa-home"></i>&nbsp;Home <% end %>
       </li>
       <li>
         <%= link_to  users_path ,class: "nav-link text-light", method: :get do%><i class="fas fa-users"></i>&nbsp;Users <% end %>
@@ -26,11 +30,11 @@
         <%= link_to  books_path ,class: "nav-link text-light", method: :get do%><i class="fas fa-book-open"></i>&nbsp;Books <% end %>
       </li>
       <li>
-        <%= link_to  destroy_user_session_path ,class: "nav-link text-light", method: :get do%><i class="fas fa-sign-out-alt"></i>&nbsp;Log_out <% end %>
+        <%= link_to  destroy_user_session_path ,class: "nav-link text-light", method: :delete do%><i class="fas fa-sign-out-alt"></i>&nbsp;Log out <% end %>
       </li>
     <% else %>
       <li>
-        <%= link_to homes_top_path ,class: "nav-link text-light", method: :get do%><i class="fas fa-home"></i>&nbsp;Homes <% end %>
+        <%= link_to homes_top_path ,class: "nav-link text-light", method: :get do%><i class="fas fa-home"></i>&nbsp;Home <% end %>
       </li>
       <li>
         <%= link_to homes_about_path ,class: "nav-link text-light", method: :get do%><i class="fas fa-link"></i>&nbsp;About <% end %>
@@ -39,7 +43,7 @@
         <%= link_to new_user_registration_path ,class: "nav-link text-light", method: :get do%><i class="fas fa-user-plus"></i>&nbsp;Sign up <% end %>
       </li>
       <li>
-        <%= link_to new_user_session_path ,class: "nav-link text-light", method: :get do%><i class="fas fa-sign-in-alt"></i>&nbsp;Log_in <% end %>
+        <%= link_to new_user_session_path ,class: "nav-link text-light", method: :get do%><i class="fas fa-sign-in-alt"></i>&nbsp;Log in <% end %>
       </li>
     <% end %>
     </ul>
@@ -47,6 +51,9 @@
     </div>
     </nav>
   </header>
+  <% flash.each do |message_type, message| %>
+　　<%= message %>
+　<% end %>
   <main>
     <p id="notice"></p>
     <%= yield %>
